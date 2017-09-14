@@ -60,9 +60,11 @@ define([
         context.triggerEvent('focus', event);
       }).on('blur', function (event) {
         context.triggerEvent('blur', event);
-      }).on('mousedown', function (event) {
+      }).on('mousedown touchstart', function (event) {
+        if (event.type === 'touchstart') e.stopPropagation();
         context.triggerEvent('mousedown', event);
-      }).on('mouseup', function (event) {
+      }).on('mouseup touchend', function (event) {
+        if (event.type === 'touchend') e.stopPropagation();
         context.triggerEvent('mouseup', event);
       }).on('scroll', function (event) {
         context.triggerEvent('scroll', event);
