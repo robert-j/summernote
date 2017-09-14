@@ -61,10 +61,14 @@ define([
       }).on('blur', function (event) {
         context.triggerEvent('blur', event);
       }).on('mousedown touchstart', function (event) {
-        if (event.type === 'touchstart') e.stopPropagation();
+        if (event.type === 'touchstart') {
+          event.stopPropagation();
+        }
         context.triggerEvent('mousedown', event);
       }).on('mouseup touchend', function (event) {
-        if (event.type === 'touchend') e.stopPropagation();
+        if (event.type === 'touchend') {
+          event.stopPropagation();
+        }
         context.triggerEvent('mouseup', event);
       }).on('scroll', function (event) {
         context.triggerEvent('scroll', event);
